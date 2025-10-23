@@ -1,2 +1,2 @@
 ## TODO
-Later make like https://www.adamsurak.com/
+Later add more details
