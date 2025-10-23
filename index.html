@@ -1,162 +1,82 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Balbir Singh · Staff SRE</title>
-  <meta name="description" content="Balbir Singh — Staff Site Reliability Engineer. Building reliable, scalable platforms on AWS & Kubernetes." />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ffffff'/%3E%3Ctext x='50' y='62' font-size='58' text-anchor='middle' fill='black' font-family='Inter, system-ui' %3EBS%3C/text%3E%3C/svg%3E" />
-  <style>
-    :root{
-      --bg:#ffffff; --panel:#f9fafb; --ink:#111827; --muted:#4b5563; --link:#2563eb; --chip:#f3f4f6; --accent:#111827;
-      --max:1100px; --side:320px; --radius:16px; --shadow:0 2px 12px rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans;
-      background:var(--bg); color:var(--ink); line-height:1.6;
-    }
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max); margin:0 auto; padding:32px; display:grid; gap:28px; grid-template-columns: minmax(0,1fr)}
-    @media (min-width:980px){ .wrap{grid-template-columns: var(--side) minmax(0,1fr)} }
-
-    .card{background:var(--panel); border:1px solid #e5e7eb; border-radius:var(--radius); box-shadow:var(--shadow)}
-    .side{position:sticky; top:24px; align-self:start; padding:28px}
-    .avatar{width:86px; height:86px; border-radius:16px; background:#111827; color:white; display:grid; place-items:center; font-weight:800; font-size:28px; margin-bottom:16px}
-    .name{font-size:26px; font-weight:800; margin:2px 0}
-    .role{color:var(--muted); margin:2px 0 12px; font-weight:600}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px}
-    .chip{background:var(--chip); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
-    .nav{display:flex; flex-direction:column; gap:8px; margin-top:18px}
-    .nav a{padding:8px 10px; border-radius:8px; color:var(--ink)}
-    .nav a:hover{background:#f3f4f6}
-    .contact{margin-top:16px; padding-top:16px; border-top:1px dashed #e5e7eb}
-    .contact a{display:block; color:var(--link)}
-
-    .main{display:flex; flex-direction:column; gap:22px}
-    .hero{padding:26px; display:grid; gap:14px; border-left:3px solid var(--accent)}
-    .hero h1{font-size:32px; margin:0}
-    .hero p{margin:0; color:var(--muted)}
-    .cta{display:flex; gap:12px; margin-top:4px}
-    .btn{padding:10px 14px; border-radius:12px; border:1px solid #d1d5db; background:#111827; color:#fff; font-weight:600}
-    .btn:hover{opacity:0.9}
-    .btn--ghost{background:#fff; color:#111827}
-
-    section{padding:20px 24px}
-    h2{margin:0 0 12px; font-size:18px; letter-spacing:.5px; text-transform:uppercase; color:#6b7280}
-
-    .exp{display:grid; gap:14px}
-    .item{padding:14px; border:1px solid #e5e7eb; border-radius:14px; background:white}
-    .item h3{margin:0; font-size:16px; color:#111827}
-    .meta{color:#6b7280; font-weight:500; margin-bottom:4px}
-
-    .grid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px}
-    @media (min-width:780px){ .grid{grid-template-columns: repeat(4, minmax(0,1fr))} }
-    .pill{padding:10px 12px; border-radius:12px; background:#f9fafb; border:1px solid #e5e7eb; text-align:center}
-
-    footer{padding:20px 24px; color:#6b7280; display:flex; justify-content:space-between; align-items:center}
-  </style>
+    <meta charset="UTF-8">
+    <title>Balbir Singh | Staff Site Reliability Engineer</title>
+    <meta name="msvalidate.01" content="205AA8D5E1E71698E3554F2FC6D4109F" />
+    <meta name="description"
+        content="Personal website of Balbir Singh - Site Reliability Engineer, DevOps, infrastructure builder, and perpetual learner." />
+    <meta name="author" content="Balbir Singh" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="profile" href="https://microformats.org/profile/hcard" />
+    <link href="./main.css" rel="stylesheet">
 </head>
-<body>
-  <div class="wrap">
-    <aside class="card side">
-      <div class="name">Balbir Singh</div>
-      <div class="role">Staff Site Reliability Engineer</div>
-      <div class="chips">
-        <span class="chip">AWS</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span>
-      </div>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="contact">
-        <a href="mailto:balbir@googlealumni.com">balbir@googlealumni.com</a>
-        <a href="https://www.linkedin.com/in/singhbalbir/" target="_blank">LinkedIn</a>
-        <small style="display:block;margin-top:8px">San Jose, CA</small>
-      </div>
-    </aside>
 
-    <main class="main">
-      <section class="card hero" id="about">
-        <h1>Building reliable, scalable platforms in the cloud.</h1>
-        <p>I serve as Staff SRE at Guidewire, ensuring reliability and performance of the Guidewire Cloud Platform. Passionate about automation, observability, and service excellence.</p>
-        <div class="cta">
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn btn--ghost" href="#experience">Experience</a>
-        </div>
-      </section>
+<body class="bg-white text-gray-800 font-mono">
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+        <!-- Header Section -->
+        <header class="mb-16">
+            <h1 class="text-4xl font-bold mb-2">Balbir Singh</h1>
+            <p class="text-sm mb-4 text-gray-600">// Site Reliability Egnineer, DevOps</p>
+            <p class="mb-4">
+                Currently working as a Staff Site Reliability Engineer.
+                Driven by curiosity and a relentless pursuit of knowledge.
+            </p>
+            <a href="/cdn-cgi/l/email-protection#1a7b7e7b775a696f687b71347f6f" class="text-gray-600 hover:text-gray-800 transition duration-300"><span class="__cf_email__" data-cfemail="2b4a4f4a466b585e594a40054e5e">[email&#160;protected]</span></a>
+        </header>
 
-      <section class="card" id="experience">
-        <h2>Experience</h2>
-        <div class="exp">
-          <article class="item">
-            <h3>Guidewire Software — Staff Site Reliability Engineer</h3>
-            <div class="meta">Jan 2023 – Present · San Mateo, CA</div>
-            <p>Leading production readiness and reliability for Guidewire Cloud Platform (AWS + Kubernetes).</p>
-          </article>
+        <!-- Timeline Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 border-b border-gray-800 pb-2">$ cat career_timeline.log</h2>
+            <div class="space-y-8">
 
-          <article class="item">
-            <h3>Groupon — Team Lead, Site Reliability Engineering</h3>
-            <div class="meta">Feb 2017 – Jan 2023 · Santa Clara, CA</div>
-            <p>Scaled platform reliability and drove migration from on-prem to AWS; owned SLOs and incident practice.</p>
-          </article>
+                <div class="border-l-2 border-gray-800 pl-4 py-2">
+                    <h3 class="text-xl font-bold">Staff SRE @ Guidewire Software Inc</h3>
+                    <p class="text-sm text-gray-600 mb-2">October 2025 - Now</p>
+                    <p class="text-sm">
+                        > AWS, Kubernetes, Terraform<br />
+                        > All things related to Infrastructure and Cloud Platform
+                    </p>
+                    <a href="https://world.org"
+                        class="text-gray-600 hover:text-gray-800 transition duration-300 text-sm">world.org</a>
+                </div>
 
-          <article class="item">
-            <h3>Thermo Fisher Scientific — Senior SRE</h3>
-            <div class="meta">Apr 2014 – Jul 2015 · Bengaluru, IN</div>
-            <p>Automated AWS infrastructure and improved deployment workflows across production systems.</p>
-          </article>
+                <div class="border-l-2 border-gray-800 pl-4 py-2">
+                    <h3 class="text-xl font-bold">Staff SRE @ Guidewire Software Inc</h3>
+                    <p class="text-sm text-gray-600 mb-2">October 2025 - Now</p>
+                    <p class="text-sm">
+                        > AWS, Kubernetes, Terraform<br />
+                        > All things related to Infrastructure and Cloud Platform
+                    </p>
+                    <a href="https://world.org"
+                        class="text-gray-600 hover:text-gray-800 transition duration-300 text-sm">world.org</a>
+                </div>
 
-          <article class="item">
-            <h3>LinkedIn — Team Lead, Site Reliability Engineering</h3>
-            <div class="meta">Nov 2011 – Feb 2014 · Bengaluru, IN</div>
-            <p>Launched monitoring and deploy tooling; built and ran India NOC operations.</p>
-          </article>
+            </div>
+        </section>
 
-          <article class="item">
-            <h3>Cisco Systems — IT Engineer</h3>
-            <div class="meta">Sep 2010 – Nov 2011 · Bengaluru, IN</div>
-            <p>Automated disaster recovery for middleware; improved Tibco JMS performance.</p>
-          </article>
+        <!-- Social Networks Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-b border-gray-800 pb-2">$ ls social_links/</h2>
+            <div class="space-x-4">
+                <a href="http://www.linkedin.com/in/singhbalbir"
+                    class="text-gray-600 hover:text-gray-800 transition duration-300">LinkedIn (for detailed
+                    CV)</a><br />
+                <a href="https://www.twitter.com/balbir97"
+                    class="text-gray-600 hover:text-gray-800 transition duration-300">Twitter</a><br />
+                <a href="https://github.com/balbir97"
+                    class="text-gray-600 hover:text-gray-800 transition duration-300">GitHub</a>
+            </div>
+        </section>
 
-          <article class="item">
-            <h3>Yahoo — Production Engineer</h3>
-            <div class="meta">Mar 2008 – Aug 2010 · Bengaluru, IN</div>
-            <p>Operated large-scale Linux/FreeBSD services and data pipelines to meet SLAs.</p>
-          </article>
-
-          <article class="item">
-            <h3>Google — Associate System Administrator</h3>
-            <div class="meta">Jul 2007 – Jan 2008 · Hyderabad, IN</div>
-            <p>Built internal automation and managed server platforms (LTSP, Apache).</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="card" id="skills">
-        <h2>Skills</h2>
-        <div class="grid">
-          <div class="pill">AWS</div><div class="pill">Kubernetes</div><div class="pill">Terraform</div><div class="pill">Docker</div>
-          <div class="pill">Linux</div><div class="pill">CI/CD</div><div class="pill">Monitoring</div><div class="pill">Python</div>
-        </div>
-      </section>
-
-      <section class="card" id="contact">
-        <h2>Contact</h2>
-        <p>Email is best way to reach me.</p>
-        <a class="btn" href="mailto:balbir@googlealumni.com">Email Balbir</a>
-      </section>
-
-      <footer>
-        <small>© <span id="y"></span> Balbir Singh — Built with semantic HTML</small>
-        <small><a href="#">Back to top ↑</a></small>
-      </footer>
-    </main>
-  </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+        <!-- Footer -->
+        <footer class="text-center py-4 border-t border-gray-800 text-sm">
+            <p>© 2025 Balbir Singh. All rights reserved.</p>
+        </footer>
+    </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"5b789c44929f46f484510042d827781b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
+
 </html>
