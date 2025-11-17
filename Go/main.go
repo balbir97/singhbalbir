@@ -53,10 +53,10 @@ type Skills struct {
 }
 
 type ExperienceEntry struct {
-	Company      string   `yaml:"company"`
+	Company      string   `yaml:"company_short"`
 	Url          string   `yaml:"url"`
 	Location     string   `yaml:"location"`
-	Title        string   `yaml:"title"`
+	Title        string   `yaml:"title_short"`
 	Period       Period   `yaml:"period"`
 	Achievements []string `yaml:"achievements"`
 }
@@ -91,11 +91,12 @@ type TemplateData struct {
 }
 
 type TemplateExperience struct {
-	Role    string
-	Company string
-	Period  string
-	Bullets []string
-	Link    string
+	Role     string
+	Company  string
+	Location string
+	Period   string
+	Bullets  []string
+	Link     string
 }
 
 type TemplateSocial struct {
@@ -149,11 +150,12 @@ func main() {
 		period := fmt.Sprintf("%s %s to %s %s", exp.Period.From.Month, exp.Period.From.Year, exp.Period.To.Month, exp.Period.To.Year)
 
 		td.Experience = append(td.Experience, TemplateExperience{
-			Role:    exp.Title,
-			Company: exp.Company,
-			Period:  period,
-			Bullets: exp.Achievements,
-			Link:    exp.Url,
+			Role:     exp.Title,
+			Company:  exp.Company,
+			Location: exp.Location,
+			Period:   period,
+			Bullets:  exp.Achievements,
+			Link:     exp.Url,
 		})
 	}
 

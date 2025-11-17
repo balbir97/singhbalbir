@@ -42,9 +42,11 @@ skills:
 
 experience:
   - company: Guidewire Software Inc
+    company_short: Guidewire Software Inc
     url: www.guidewire.com
     location: San Mateo, USA
     title: Staff Site Reliability Engineer
+    title_short: Staff SRE
     period:
       from:
         month: "Jan"
@@ -60,9 +62,11 @@ experience:
       - "Program lead for Guidewire Production Readiness (GPR)"
 
   - company: Groupon Inc
+    company_short: Groupon Inc
     url: www.groupon.com
     location: Santa Clara, USA
     title: "Team Lead – Site Reliability Engineering"
+    title_short: Senior DevOps Engineer
     period:
       from:
         month: "Feb"
@@ -76,9 +80,11 @@ experience:
       - "Designed and implemented performance and reliability improvements"
 
   - company: Groupon Shared Services Pvt Ltd
+    company_short: Groupon Inc
     url: www.groupon.com
     location: Bengaluru, India
     title: Senior DevOps Engineer
+    title_short: Senior Platform Engineer
     period:
       from:
         month: "Aug"
@@ -92,9 +98,11 @@ experience:
       - "Partnered with product teams to embed SRE practices, reducing incidents by 40%"
 
   - company: Thermo Fisher Scientific
+    company_short: Thermo Fisher Scientific
     url: www.thermofisher.com
     location: Bengaluru, India
     title: Senior Site Reliability Engineer
+    title_short: Senior Infrastructure Engineer
     period:
       from:
         month: "Apr"
@@ -108,9 +116,11 @@ experience:
       - "Ensured scalability and reliability of production servers"
 
   - company: LinkedIn Technology Information Pvt Ltd
+    company_short: LinkedIn
     url: www.linkedin.com
     location: Bengaluru, India
     title: Team Lead – Site Reliability Engineering
+    title_short: Team Lead – Site Reliability Engineering
     period:
       from:
         month: "Nov"
@@ -124,9 +134,11 @@ experience:
       - "Built and led a 10-member NOC team in Bangalore"
 
   - company: Cisco Systems India Pvt Ltd
+    company_short: Cisco Systems
     url: www.cisco.com
     location: Bengaluru, India
     title: IT Engineer
+    title_short: IT Engineer
     period:
       from:
         month: "Sep"
@@ -140,9 +152,11 @@ experience:
       - "SME for messaging infrastructure using Tibco JMS and BPIM"
 
   - company: Yahoo Software Development India Pvt Ltd
+    company_short: Yahoo!
     url: www.yahoo.com
     location: Bengaluru, India
     title: Production Engineer
+    title_short: Production Engineer
     period:
       from:
         month: "Mar"
@@ -156,9 +170,11 @@ experience:
       - "Managed cluster and deployment automation"
 
   - company: Google India Pvt Ltd
+    company_short: Google
     url: www.google.com
     location: Hyderabad, India
     title: Associate System Administrator
+    title_short: Associate System Administrator
     period:
       from:
         month: "Jul"
