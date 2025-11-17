@@ -147,7 +147,21 @@ func main() {
 
 	// Convert experience
 	for _, exp := range resume.Experience {
-		period := fmt.Sprintf("%s %s to %s %s", exp.Period.From.Month, exp.Period.From.Year, exp.Period.To.Month, exp.Period.To.Year)
+		// Build the period string with "Present" handling
+		var period string
+		if exp.Period.To.Month == "-" && exp.Period.To.Year == "-" {
+			period = fmt.Sprintf("%s %s to Present",
+				exp.Period.From.Month,
+				exp.Period.From.Year,
+			)
+		} else {
+			period = fmt.Sprintf("%s %s to %s %s",
+				exp.Period.From.Month,
+				exp.Period.From.Year,
+				exp.Period.To.Month,
+				exp.Period.To.Year,
+			)
+		}
 
 		td.Experience = append(td.Experience, TemplateExperience{
 			Role:     exp.Title,
