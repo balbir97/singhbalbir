@@ -579,7 +579,7 @@
     \includegraphics[height=2cm]{certificates/cka}
     \includegraphics[height=2cm]{certificates/aws}
     \includegraphics[height=2cm]{certificates/terraform}
-    \includegraphics[height=2cm]{certificates/rhce}
+%     \includegraphics[height=2cm]{certificates/rhce}
     
     % \includegraphics[width=0.13\headertextwidth]{logo_1.png}
     % \includegraphics[width=0.08\headertextwidth]{logo_2.png}
