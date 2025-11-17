@@ -146,14 +146,14 @@
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 
-%\newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfont}{\sourcesanspro}
+\newcommand*{\headerfont}{\roboto}
+%\newcommand*{\headerfont}{\sourcesanspro}
 
-%\newcommand*{\bodyfontlight}{\sourcesansprolight}
-\newcommand*{\bodyfontlight}{\sourcesanspro}
+\newcommand*{\bodyfontlight}{\sourcesansprolight}
+%\newcommand*{\bodyfontlight}{\sourcesanspro}
 
-%\newcommand*{\headerfontlight}{\robotolight}
-\newcommand*{\headerfontlight}{\sourcesanspro}
+\newcommand*{\headerfontlight}{\robotolight}
+%\newcommand*{\headerfontlight}{\sourcesanspro}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
