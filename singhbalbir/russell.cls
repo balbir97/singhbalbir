@@ -576,7 +576,7 @@
   \begin{minipage}[c]{0.35\headertextwidth}%
     % \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
     \hfill
-    \includegraphics[height=2cm]{certificates/cka}
+    \includegraphics[height=3cm]{certificates/cka}
 %     \includegraphics[height=2cm]{certificates/aws}
 %     \includegraphics[height=2cm]{certificates/terraform}
 %     \includegraphics[height=2cm]{certificates/rhce}
