@@ -33,12 +33,13 @@ education:
       - "Selected for Tata Steel’s industrial visit among top of the class"
 
 skills:
-  platform: ["Linux", "Docker", "Kubernetes", "AWS Cloud"]
+  platform: ["Linux", "AWS Cloud", "Docker", "Kubernetes"]
   deployment: ["Ansible", "Terraform"]
   programming: ["Bash", "Perl", "Ruby", "Python", "Go"]
-  observability: ["Nagios", "Splunk", "checkMK", "Datadog"]
+  observability: ["Nagios", "Splunk", "Prometheus, Grafana", "Datadog"]
   cicd: ["Jenkins", "Github Actions", "TeamCity"]
-  services: ["DNS", "DHCP", "CDN", "PXE", "Citrix Netscaler Load Balancer"]
+  services: ["DNS", "DHCP", "CDN", "PXE", "Consul", "Netscaler"]
+  certificates: ["RHCE", "SCSA", "CCNA", "AWS CP", "Terraform CA", "CKA"]
 
 experience:
   - company: Guidewire Software Inc
