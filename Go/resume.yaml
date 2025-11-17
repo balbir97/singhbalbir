@@ -39,6 +39,7 @@ skills:
   observability: ["Nagios", "Splunk", "Prometheus, Grafana", "Datadog"]
   cicd: ["Jenkins", "Github Actions", "TeamCity"]
   services: ["DNS", "DHCP", "CDN", "PXE", "Consul", "Netscaler"]
+  databases: ["Postgres", "MongoDB", "DynamoDB"]
   certificates: ["RHCE", "SCSA", "CCNA", "AWS CP", "Terraform CA", "CKA"]
 
 experience:
