@@ -53,10 +53,10 @@ type Skills struct {
 }
 
 type ExperienceEntry struct {
-	Company      string   `yaml:"company_short"`
+	Company      string   `yaml:"company"`
 	Url          string   `yaml:"url"`
 	Location     string   `yaml:"location"`
-	Title        string   `yaml:"title_short"`
+	Title        string   `yaml:"title"`
 	Period       Period   `yaml:"period"`
 	Achievements []string `yaml:"achievements"`
 }
