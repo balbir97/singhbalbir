@@ -15,8 +15,9 @@ import (
 
 type Resume struct {
 	Name        string            `yaml:"name"`
+	Titles      string            `yaml:"titles"`
 	Contact     Contact           `yaml:"contact"`
-	Profile     string            `yaml:"profile"`
+	Punchline   string            `yaml:"punchline"`
 	Education   []EducationEntry  `yaml:"education"`
 	Skills      Skills            `yaml:"skills"`
 	Experience  []ExperienceEntry `yaml:"experience"`
@@ -29,7 +30,8 @@ type Contact struct {
 	Location string `yaml:"location"`
 	Phone    string `yaml:"phone"`
 	Email    string `yaml:"email"`
-	Website  string `yaml:"website"`
+	Github   string `yaml:"github"`
+	Twitter  string `yaml:"twitter"`
 	LinkedIn string `yaml:"linkedin"`
 }
 
@@ -52,6 +54,7 @@ type Skills struct {
 
 type ExperienceEntry struct {
 	Company      string   `yaml:"company"`
+	Url          string   `yaml:"url"`
 	Location     string   `yaml:"location"`
 	Title        string   `yaml:"title"`
 	Period       Period   `yaml:"period"`
@@ -79,8 +82,8 @@ type InterestEntry struct {
 
 type TemplateData struct {
 	Name       string
-	Title      string
-	Summary    string
+	Titles     string
+	Punchline  string
 	Email      string
 	Experience []TemplateExperience
 	Social     []TemplateSocial
@@ -129,14 +132,15 @@ func main() {
 
 	// Map YAML → TemplateData
 	td := TemplateData{
-		Name:    resume.Name,
-		Title:   resume.Experience[0].Title,
-		Summary: resume.Profile,
-		Email:   resume.Contact.Email,
-		Year:    time.Now().Year(),
+		Name:      resume.Name,
+		Titles:    resume.Titles,
+		Punchline: resume.Punchline,
+		Email:     resume.Contact.Email,
+		Year:      time.Now().Year(),
 		Social: []TemplateSocial{
+			{Name: "Github", URL: resume.Contact.Github},
+			{Name: "Twitter", URL: resume.Contact.Twitter},
 			{Name: "LinkedIn", URL: resume.Contact.LinkedIn},
-			{Name: "Website", URL: resume.Contact.Website},
 		},
 	}
 
@@ -149,7 +153,7 @@ func main() {
 			Company: exp.Company,
 			Period:  period,
 			Bullets: exp.Achievements,
-			Link:    resume.Contact.LinkedIn,
+			Link:    exp.Url,
 		})
 	}
 
