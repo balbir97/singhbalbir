@@ -1,4 +1,4 @@
-```aiignore
+```
 yq eval -o=json singhbalbir.yaml
 
 git commit -am 'Another commit'; git pull --rebase; git push
