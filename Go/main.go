@@ -1,13 +1,29 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
-	"log"
 	"os"
 	"time"
 
 	"gopkg.in/yaml.v3"
 )
+
+// ----------------------------
+// YAML Structs
+// ----------------------------
+
+type Resume struct {
+	Name        string            `yaml:"name"`
+	Contact     Contact           `yaml:"contact"`
+	Profile     string            `yaml:"profile"`
+	Education   []EducationEntry  `yaml:"education"`
+	Skills      Skills            `yaml:"skills"`
+	Experience  []ExperienceEntry `yaml:"experience"`
+	Interests   []InterestEntry   `yaml:"interests"`
+	References  string            `yaml:"references"`
+	LastUpdated string            `yaml:"last_updated"`
+}
 
 type Contact struct {
 	Location string `yaml:"location"`
@@ -17,7 +33,7 @@ type Contact struct {
 	LinkedIn string `yaml:"linkedin"`
 }
 
-type Education struct {
+type EducationEntry struct {
 	Institution string   `yaml:"institution"`
 	Location    string   `yaml:"location"`
 	Degree      string   `yaml:"degree"`
@@ -34,79 +50,130 @@ type Skills struct {
 	Services      []string `yaml:"services"`
 }
 
-type Period struct {
-	From struct {
-		Month string `yaml:"month"`
-		Year  string `yaml:"year"`
-	} `yaml:"from"`
-
-	To struct {
-		Month string `yaml:"month"`
-		Year  string `yaml:"year"`
-	} `yaml:"to"`
-}
-
-type Experience struct {
+type ExperienceEntry struct {
 	Company      string   `yaml:"company"`
-	URL          string   `yaml:"url"`
 	Location     string   `yaml:"location"`
 	Title        string   `yaml:"title"`
 	Period       Period   `yaml:"period"`
 	Achievements []string `yaml:"achievements"`
 }
 
-type Interest struct {
+type Period struct {
+	From MonthYear `yaml:"from"`
+	To   MonthYear `yaml:"to"`
+}
+
+type MonthYear struct {
+	Month string `yaml:"month"`
+	Year  string `yaml:"year"`
+}
+
+type InterestEntry struct {
 	Title       string `yaml:"title"`
 	Description string `yaml:"description"`
 }
 
-type Resume struct {
-	Name        string       `yaml:"name"`
-	Contact     Contact      `yaml:"contact"`
-	Profile     string       `yaml:"profile"`
-	Education   []Education  `yaml:"education"`
-	Skills      Skills       `yaml:"skills"`
-	Experience  []Experience `yaml:"experience"`
-	Interests   []Interest   `yaml:"interests"`
-	References  string       `yaml:"references"`
-	LastUpdated string       `yaml:"last_updated"`
+// ----------------------------
+// Template Struct (expected by HTML)
+// ----------------------------
 
-	// auto populated
-	Year int
+type TemplateData struct {
+	Name       string
+	Title      string
+	Summary    string
+	Email      string
+	Experience []TemplateExperience
+	Social     []TemplateSocial
+	Year       int
 }
 
-func main() {
-	// Read YAML
-	yamlBytes, err := os.ReadFile("resume.yaml")
+type TemplateExperience struct {
+	Role    string
+	Company string
+	Period  string
+	Bullets []string
+	Link    string
+}
+
+type TemplateSocial struct {
+	Name string
+	URL  string
+}
+
+// ----------------------------
+// Load YAML
+// ----------------------------
+
+func loadYAML(path string) (Resume, error) {
+	data, err := os.ReadFile(path)
 	if err != nil {
-		log.Fatalf("cannot read resume.yaml: %v", err)
+		return Resume{}, err
 	}
 
 	var r Resume
-	if err := yaml.Unmarshal(yamlBytes, &r); err != nil {
-		log.Fatalf("cannot unmarshal YAML: %v", err)
+	err = yaml.Unmarshal(data, &r)
+	return r, err
+}
+
+// ----------------------------
+// Main
+// ----------------------------
+
+func main() {
+	// Load resume.yaml
+	resume, err := loadYAML("resume.yaml")
+	if err != nil {
+		fmt.Println("Error reading YAML:", err)
+		return
 	}
 
-	// Inject current year for footer
-	r.Year = time.Now().Year()
+	// Map YAML → TemplateData
+	td := TemplateData{
+		Name:    resume.Name,
+		Title:   resume.Experience[0].Title,
+		Summary: resume.Profile,
+		Email:   resume.Contact.Email,
+		Year:    time.Now().Year(),
+		Social: []TemplateSocial{
+			{Name: "LinkedIn", URL: resume.Contact.LinkedIn},
+			{Name: "Website", URL: resume.Contact.Website},
+		},
+	}
 
-	// Load template
-	tpl, err := template.ParseFiles("template.html")
+	// Convert experience
+	for _, exp := range resume.Experience {
+		period := fmt.Sprintf("%s %s to %s %s", exp.Period.From.Month, exp.Period.From.Year, exp.Period.To.Month, exp.Period.To.Year)
+
+		td.Experience = append(td.Experience, TemplateExperience{
+			Role:    exp.Title,
+			Company: exp.Company,
+			Period:  period,
+			Bullets: exp.Achievements,
+			Link:    resume.Contact.LinkedIn,
+		})
+	}
+
+	// Load template file
+	tmpl, err := template.ParseFiles("template.html")
 	if err != nil {
-		log.Fatalf("template parse error: %v", err)
+		fmt.Println("Error loading template:", err)
+		return
 	}
 
 	// Output file
 	out, err := os.Create("index.html")
 	if err != nil {
-		log.Fatalf("cannot create index.html: %v", err)
+		fmt.Println("Error creating output:", err)
+		return
 	}
 	defer out.Close()
 
 	// Execute template
-	if err := tpl.Execute(out, r); err != nil {
-		log.Fatalf("template execution failed: %v", err)
+	err = tmpl.Execute(out, td)
+	if err != nil {
+		fmt.Println("Error rendering template:", err)
+		return
 	}
 
-	log.Println("index.html generated successfully")
+	fmt.Println("Generated index.html successfully.")
 }
