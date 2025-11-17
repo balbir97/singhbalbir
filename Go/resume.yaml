@@ -42,6 +42,7 @@ skills:
 
 experience:
   - company: Guidewire Software Inc
+    company_legal_name: Guidewire Inc
     url: www.guidewire.com
     location: San Mateo, USA
     title: Staff Site Reliability Engineer
