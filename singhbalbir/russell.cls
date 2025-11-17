@@ -576,10 +576,10 @@
   \begin{minipage}[c]{0.35\headertextwidth}%
     % \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
     \hfill
-    \includegraphics[height=2.5cm]{certificates/cka}
-%     \includegraphics[height=2cm]{certificates/aws}
-%     \includegraphics[height=2cm]{certificates/terraform}
-%     \includegraphics[height=2cm]{certificates/rhce}
+    \includegraphics[height=2.5cm]{logos/cka}
+%     \includegraphics[height=2cm]{logos/aws}
+%     \includegraphics[height=2cm]{logos/terraform}
+%     \includegraphics[height=2cm]{logos/rhce}
     
     % \includegraphics[width=0.13\headertextwidth]{logo_1.png}
     % \includegraphics[width=0.08\headertextwidth]{logo_2.png}
