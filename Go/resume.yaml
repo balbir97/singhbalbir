@@ -33,9 +33,9 @@ education:
       - "Selected for Tata Steel’s industrial visit among top of the class"
 
 skills:
-  platform: ["GNU/Linux", "AWS Cloud", "Docker", "Kubernetes"]
+  platform: ["Linux", "Docker", "Kubernetes", "AWS Cloud"]
   deployment: ["Ansible", "Terraform"]
-  programming: ["Bash", "Perl", "Python"]
+  programming: ["Bash", "Perl", "Ruby", "Python", "Go"]
   observability: ["Nagios", "Splunk", "checkMK", "Datadog"]
   cicd: ["Jenkins", "Github Actions", "TeamCity"]
   services: ["DNS", "DHCP", "CDN", "PXE", "Citrix Netscaler Load Balancer"]
